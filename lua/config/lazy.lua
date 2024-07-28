@@ -14,10 +14,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local theme = "catppuccin-mocha"
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim", opts = {
+      colorscheme = theme,
+    }, import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
   },
