@@ -7,11 +7,15 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
-    require("dapui").setup()
-
+    --require("dapui").setup()
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        dapui.setup()
+      end,
+    })
     dap.adapters.coreclr = {
       type = "executable",
-      command = "Z:/nvim_tools/netcoredbg/netcoredbg",
+      command = "netcoredbg",
       args = { "--interpreter=vscode" },
     }
 
@@ -23,6 +27,12 @@ return {
         program = function()
           return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
         end,
+      },
+      {
+        type = "coreclr",
+        name = "attach - netcoredbg",
+        request = "attach",
+        processId = require("dap.utils").pick_process,
       },
     }
 
@@ -40,6 +50,8 @@ return {
     end
 
     vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
-    vim.keymap.set("n", "F1", dap.continue, {})
+    vim.keymap.set("n", "<F1>", dap.continue, {})
+    vim.keymap.set("n", "<F2>", dap.step_over, {})
+    vim.keymap.set("n", "<F3>", dap.step_into, {})
   end,
 }
