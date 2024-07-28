@@ -11,7 +11,7 @@ return {
 
     dap.adapters.coreclr = {
       type = "executable",
-      command = "Z:/nvim_tools/netcoredbg/netcoredbg",
+      command = "netcoredbg",
       args = { "--interpreter=vscode" },
     }
 
@@ -40,6 +40,8 @@ return {
     end
 
     vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
-    vim.keymap.set("n", "F1", dap.continue, {})
+    vim.keymap.set("n", "<F1>", dap.continue, {})
+    vim.keymap.set("n", "<F2>", dap.step_over, {})
+    vim.keymap.set("n", "<F3>", dap.step_into, {})
   end,
 }
