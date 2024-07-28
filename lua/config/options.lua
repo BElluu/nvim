@@ -3,3 +3,6 @@
 -- Add any additional options here
 vim.opt.wrap = true
 vim.opt.relativenumber = false
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+vim.g.deprecation_warnings = true
