@@ -7,8 +7,12 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
-    require("dapui").setup()
-
+    --require("dapui").setup()
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        dapui.setup()
+      end,
+    })
     dap.adapters.coreclr = {
       type = "executable",
       command = "netcoredbg",
@@ -23,6 +27,12 @@ return {
         program = function()
           return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
         end,
+      },
+      {
+        type = "coreclr",
+        name = "attach - netcoredbg",
+        request = "attach",
+        processId = require("dap.utils").pick_process,
       },
     }
 
