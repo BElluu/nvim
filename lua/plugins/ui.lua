@@ -185,6 +185,7 @@ return {
           shortcut = {
             -- stylua: ignore start
             { icon = "󰥨 ", desc = "find files", group = "DiagnosticWarn", key = "f", action = "Telescope find_files" },
+            { icon = "󰱼 ", desc = "live grep", group = "DiagnosticWarn", key = "s", action = "Telescope live_grep" },
             { icon = " ", desc = "browse git", group = "DiagnosticWarn", key = "g", action = "LazyGit" },
             { icon = "󰒲 ", desc = "lazy", group = "DiagnosticWarn", key = "l", action = "Lazy" },
             { icon = "󱌣 ", desc = "mason", group = "DiagnosticWarn", key = "m", action = "Mason" },

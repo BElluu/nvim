@@ -53,6 +53,12 @@ M.register_net_dap = function()
         return dll.relative_project_path
       end,
     },
+    {
+      type = "coreclr",
+      name = "attach - netcoredbg",
+      request = "attach",
+      processId = require("dap.utils").pick_process,
+    },
   }
 
   dap.listeners.before["event_terminated"]["easy-dotnet"] = function()
