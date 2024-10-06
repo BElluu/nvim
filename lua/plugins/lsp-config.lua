@@ -30,9 +30,9 @@ return {
       })
       lspconfig.omnisharp.setup({
         capabilities = capabilities,
-        cmd = { "C:\\Users\\barte\\AppData\\Local\\nvim-data\\mason\\bin\\omnisharp.cmd", "--languageserver" },
+        --cmd = { "C:\\Users\\barte\\AppData\\Local\\nvim-data\\mason\\bin\\omnisharp.cmd", "--languageserver" },
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
       lspconfig.cssls.setup({
