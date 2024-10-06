@@ -29,9 +29,9 @@ return {
     end,
     keys = {
       -- stylua: ignore start
-      {"<leader>dc", function() require("dap").continue() end, noremap = true, silent = true, desc = "continue",},
-      {"<leader>do", function() require("dap").step_over() end, noremap = true, silent = true, desc = "step over",},
-      {"<leader>di", function() require("dap").step_into() end, noremap = true, silent = true, desc = "step into",},
+      {"<S-F8>", function() require("dap").continue() end, noremap = true, silent = true, desc = "continue",},
+      {"<S-F10>", function() require("dap").step_over() end, noremap = true, silent = true, desc = "step over",},
+      {"<S-F11>", function() require("dap").step_into() end, noremap = true, silent = true, desc = "step into",},
       {"<leader>du", function() require("dap").step_out() end, noremap = true, silent = true, desc = "step out",},
       {"<leader>dr", function() require("dap").restart() end, noremap = true, silent = true, desc = "restart",},
       {"<leader>dt", function() require("dap").terminate() end, noremap = true, silent = true, desc = "terminate",},
