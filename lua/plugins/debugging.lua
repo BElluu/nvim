@@ -2,15 +2,18 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
+    "leoluz/nvim-dap-go",
   },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
+    local dapgo = require("dap-go")
 
     --require("dapui").setup()
     vim.api.nvim_create_autocmd("VimEnter", {
       callback = function()
         dapui.setup()
+        dapgo.setup()
       end,
     })
     dap.adapters.coreclr = {
